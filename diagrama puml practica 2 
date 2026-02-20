@@ -1,0 +1,53 @@
+class Link
+class Zelda
+class Ganon
+class Enemigo
+class Personaje
+class Espada
+class Escudo
+class Arco
+class Flecha
+class Bomba
+class Corazon
+class Rupia
+class Llave
+class Cofre
+class Mazmorra
+class NPC
+class Hechizo
+class Boss
+class Inventario
+class Mapa
+class Trifuerza
+
+Link --> Personaje
+Zelda --> Personaje
+Ganon --> Personaje
+Enemigo --> Personaje
+NPC --> Personaje
+Boss --> Enemigo
+Link *-- Espada
+Link *-- Escudo
+Link *-- Inventario
+Link *-- Corazon
+
+Link *-- Rupias
+Link 0-- Arco
+Link 0-- Flecha
+Link 0-- Bomba
+Link 0-- Llave
+Link 0-- Mapa
+Link 0-- Hechizo
+
+Zelda *-- Trifuerza
+
+Ganon *-- Trifuerza
+Ganon *-- Magia 
+
+Mazmorra *-- Cofre
+Mazmorra *-- Enemigo
+Mazmorra *-- Boss
+Mazmorra *-- Llave
+
+Cofre *-- Rupias
+Cofre 0-- ObjetoEspecial
