@@ -1,7 +1,7 @@
 @startuml
 
 class Personaje{
-+vida
++vida()
 +mover()
 +recibirDañio()
 }
@@ -10,6 +10,13 @@ class Link{
 +atacar()
 +defender()
 +usarObjeto()
+-Espada()
+-Escudo()
+-Arco()
+-Bomba()
+-Hechizo()
+-Flecha()
+-Mapa()
 }
 
 class Zelda{
@@ -18,16 +25,24 @@ class Zelda{
 
 class Ganon{
 +ataqueOscuro()
++atacar()
++perseguir()
++dañio
 }
 
 class Enemigo{
 +atacar()
 +perseguir()
++dañio
 }
 
 
 class jefe{
 +ataqueEspecial()
++atacar()
++perseguir()
++dañio
+
 }
 
 class Espada{
@@ -41,14 +56,16 @@ class Escudo{
 
 class Arco{
 +disparar()
++dañio()
++lanzar()
 }
 
 class Flecha{
-+danio
++dañio
 }
 
 class Bomba{
-+explotar()
++ explotar()
 }
 
 class Corazon{
@@ -69,13 +86,22 @@ class Cofre{
 
 class Mazmorra{
 +entrar()
-+completar()
 +salir()
++Puerta()
+-Cofre()
+-Enemigo()
+-jefe()
 }
 
 class Hechizo{
 +lanzar()
++dañio()
 }
+class sistemalanzamiento{
++lanzar()
+
+}
+
 
 class Inventario{
 +agregarObjeto()
@@ -88,7 +114,12 @@ class Mapa{
 
 class Trifuerza{
 +otorgarPoder()
++dañio()
 }
+class Puerta{
++abrirconllave()
+}
+
 
 Link --> Personaje
 Zelda --> Personaje
@@ -97,30 +128,32 @@ Enemigo --> Personaje
 
 jefe --> Enemigo
 
-Link *-- Espada
-Link *-- Escudo
-Link *-- Inventario
-Link *-- Corazon
+Link "1"*--"1" Espada
+Link  "1"*--"1" Escudo
+Link "1"*--"1" Inventario
+Link "1"*--"4" Corazon
 
-Link *-- Rupia
-Link o-- Arco
-Link o-- Flecha
-Link o-- Bomba
-Link o-- Llave
-Link o-- Mapa
-Link o-- Hechizo
+Link "1"*--"99" Rupia
+Link "1"o--"1"Arco
+Link "1"*-- "20"Flecha
+Link "1"*-- "10"Bomba
+Link "1"*-- "5"Llave
+Link "1"*-- "1"Mapa
+Link "1"o--"1"Mapa
+Link "1"*-- "5"Hechizo
 
-Zelda *-- Trifuerza
+Zelda "1"*-- "1"Trifuerza
 
-Ganon *-- Trifuerza
-Ganon *-- Hechizo
+Ganon "1"*-- "1"Trifuerza
+Ganon "1"*-- "1"Hechizo
 
-Mazmorra *-- Cofre
-Mazmorra *-- Enemigo
-Mazmorra *-- jefe
-Mazmorra *-- Llave
+Mazmorra "1"*-- "5"Cofre
+Mazmorra "1"*-- "8"Enemigo
+Mazmorra "1"*-- "1"jefe
+Mazmorra "1"*-- "5"Llave
+Mazmorra "1"*--"5"Puerta
 
-Cofre *-- Rupia
-Cofre o-- Hechizo
+Cofre "1"*-- Rupia
+Cofre "1"o-- Hechizo
 
 @enduml
