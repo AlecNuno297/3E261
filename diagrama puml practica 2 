@@ -1,53 +1,126 @@
-class Link
-class Zelda
-class Ganon
-class Enemigo
-class Personaje
-class Espada
-class Escudo
-class Arco
-class Flecha
-class Bomba
-class Corazon
-class Rupia
-class Llave
-class Cofre
-class Mazmorra
-class NPC
-class Hechizo
-class Boss
-class Inventario
-class Mapa
-class Trifuerza
+@startuml
+
+class Personaje{
++vida
++mover()
++recibirDañio()
+}
+
+class Link{
++atacar()
++defender()
++usarObjeto()
+}
+
+class Zelda{
++usarMagia()
+}
+
+class Ganon{
++ataqueOscuro()
+}
+
+class Enemigo{
++atacar()
++perseguir()
+}
+
+
+class jefe{
++ataqueEspecial()
+}
+
+class Espada{
++dañio
++atacar()
+}
+
+class Escudo{
++defender()
+}
+
+class Arco{
++disparar()
+}
+
+class Flecha{
++danio
+}
+
+class Bomba{
++explotar()
+}
+
+class Corazon{
++curar()
+}
+
+class Rupia{
++valor
+}
+
+class Llave{
++abrir()
+}
+
+class Cofre{
++abrir()
+}
+
+class Mazmorra{
++entrar()
++completar()
++salir()
+}
+
+class Hechizo{
++lanzar()
+}
+
+class Inventario{
++agregarObjeto()
++usarObjeto()
+}
+
+class Mapa{
++mostrar()
+}
+
+class Trifuerza{
++otorgarPoder()
+}
 
 Link --> Personaje
 Zelda --> Personaje
 Ganon --> Personaje
 Enemigo --> Personaje
-NPC --> Personaje
-Boss --> Enemigo
+
+jefe --> Enemigo
+
 Link *-- Espada
 Link *-- Escudo
 Link *-- Inventario
 Link *-- Corazon
 
-Link *-- Rupias
-Link 0-- Arco
-Link 0-- Flecha
-Link 0-- Bomba
-Link 0-- Llave
-Link 0-- Mapa
-Link 0-- Hechizo
+Link *-- Rupia
+Link o-- Arco
+Link o-- Flecha
+Link o-- Bomba
+Link o-- Llave
+Link o-- Mapa
+Link o-- Hechizo
 
 Zelda *-- Trifuerza
 
 Ganon *-- Trifuerza
-Ganon *-- Magia 
+Ganon *-- Hechizo
 
 Mazmorra *-- Cofre
 Mazmorra *-- Enemigo
-Mazmorra *-- Boss
+Mazmorra *-- jefe
 Mazmorra *-- Llave
 
-Cofre *-- Rupias
-Cofre 0-- ObjetoEspecial
+Cofre *-- Rupia
+Cofre o-- Hechizo
+
+@enduml
