@@ -6,6 +6,12 @@ class Personaje{
 +recibirDañio()
 }
 
+class Jugador{
++Link
+
+
+}
+
 class Link{
 +atacar()
 +defender()
@@ -156,4 +162,4 @@ Mazmorra "1"*--"5"Puerta
 Cofre "1"*-- Rupia
 Cofre "1"o-- Hechizo
 
-@enduml
+@enduml the leyends of zelda
